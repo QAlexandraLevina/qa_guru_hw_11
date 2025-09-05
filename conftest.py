@@ -2,7 +2,7 @@ import pytest
 from selene import browser
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-
+from utils import attachments
 
 @pytest.fixture(scope="function", autouse=True)
 def configuring_browser(setup_browser):
@@ -10,6 +10,7 @@ def configuring_browser(setup_browser):
     browser.config.window_height = 1080
     browser.config.timeout = 10
     yield
+
 
 @pytest.fixture(scope="function", autouse=True)
 def setup_browser():
@@ -28,6 +29,12 @@ def setup_browser():
         options=options
     )
     browser.config.driver = driver
+
     yield browser
+
+    attachments.add_screenshot(browser)
+    attachments.add_logs(browser)
+    attachments.add_html(browser)
+    attachments.add_video(browser)
 
     browser.quit()
