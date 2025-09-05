@@ -2,8 +2,6 @@ import pytest
 from selene import browser
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from selene import Browser, Config
-
 
 
 @pytest.fixture(scope="function", autouse=True)
