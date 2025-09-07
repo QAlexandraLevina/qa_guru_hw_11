@@ -4,6 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from utils import attachments
 
+
 @pytest.fixture(scope="function", autouse=True)
 def configuring_browser(setup_browser):
     browser.config.window_width = 1920

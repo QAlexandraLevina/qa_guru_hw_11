@@ -1,8 +1,8 @@
 import allure
 from selene.support.shared import browser
-
 from pages.registration_page import RegistrationPage
 from test_qa_guru_hw_11.demoqa.users import UserData
+
 
 @allure.title("Успешное заполнение формы")
 def test_filled_form():
